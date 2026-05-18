@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IXb - OŠ Dolac na Lašvi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --tamna: #1a1a1a; --plava: #3498db; --siva: #f4f4f4; --zlatna: #f1c40f; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--siva); scroll-behavior: smooth; }
+        
+        nav { background: var(--tamna); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 1000; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
+        nav a:hover { color: var(--plava); }
+
+        section { padding: 100px 20px; min-height: 80vh; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; }
+        
+        /* HERO SEKCIJA PREKO CIJELOG EKRANA */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('slike/skola.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            color: white; 
+            justify-content: center; 
+            text-align: center; 
+            height: 100vh; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        h1 { font-size: 3rem; margin: 0; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--tamna); border-bottom: 4px solid var(--plava); padding-bottom: 10px; }
+
+        /* PANO STIL */
+        .pano-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; width: 90%; max-width: 1200px; }
+        .kartica { background: white; padding: 10px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; text-align: center; }
+        .kartica:hover { transform: scale(1.05); border: 2px solid var(--plava); }
+        .kartica img { width: 100%; height: 280px; object-fit: cover; border-radius: 5px; }
+        .ime { margin-top: 10px; font-weight: 700; color: var(--tamna); }
+
+        /* BIOGRAFIJE STIL */
+        .bio-sekcija { background: white; width: 100%; max-width: 900px; margin-bottom: 50px; padding: 30px; border-radius: 20px; display: flex; flex-wrap: wrap; box-shadow: 0 10px 20px rgba(0,0,0,0.05); align-items: center; }
+        .bio-slika { width: 250px; height: 350px; object-fit: cover; border-radius: 15px; margin-right: 30px; border: 5px solid var(--siva); }
+        .bio-tekst { flex: 1; min-width: 300px; }
+        .bio-tekst h3 { font-size: 2rem; color: var(--plava); margin-top: 0; }
+        
+        /* ZANIMLJIVOSTI BOX STIL */
+        .zanimljivosti-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 900px; margin-top: 20px; }
+        .zanimljivost-kutija { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border-left: 5px solid var(--plava); }
+        .zanimljivost-kutija h4 { margin: 0 0 10px 0; font-size: 1.2rem; color: var(--tamna); text-transform: uppercase; }
+        .zanimljivost-kutija p { margin: 0; color: #555; line-height: 1.6; }
+
+        /* STIL ZA MATURANTSKI VIDEO */
+        .video-sekcija { background: white; width: 100%; max-width: 900px; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; box-sizing: border-box; }
+        .video-container { width: 100%; max-width: 750px; margin: 20px auto 0 auto; position: relative; }
+        .video-container video { width: 100%; height: auto; border: 3px solid var(--plava); border-radius: 12px; box-shadow: 0 12px 25px rgba(0,0,0,0.2); background: #000; }
+
+        footer { background: var(--tamna); color: white; padding: 30px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#pocetna">Početna</a>
+    <a href="#pano">Naš Pano</a>
+    <a href="#biografije">Učenici</a>
+    <a href="#zanimljivosti">Zanimljivosti</a>
+    <a href="#video">Maturantski Video</a>
+</nav>
+
+<section id="pocetna" class="hero">
+    <h1>IXb - OŠ Dolac na Lašvi</h1>
+    <p>Generacija 2017/2026 | Naša priča u bojama</p>
+</section>
+
+<section id="pano">
+    <h2>Naš Pano</h2>
+    <div class="pano-grid">
+        <div class="kartica" onclick="location.href='#razrednik-intervju'" 
+             style="grid-column: 1/-1; max-width: 300px; margin: 0 auto 50px; border: 3px solid var(--zlatna); box-shadow: 0 0 25px rgba(241, 196, 15, 0.6); transform: scale(1.1);">
+            <img src="slike/razrednik.jpg" alt="Razrednik" style="border-bottom: 2px solid var(--zlatna);">
+            <div class="ime" style="color: var(--zlatna); font-size: 1.2rem;">🌟 Kenan Hadžić 🌟</div>
+            <div style="font-size: 0.7rem; color: var(--zlatna); font-weight: bold; margin-bottom: 10px;">RAZREDNIK</div>
+        </div>
+
+        <div class="kartica" onclick="location.href='#davud'"><img src="slike/davud.jpg"><div class="ime">Davud Amidžić</div></div>
+        <div class="kartica" onclick="location.href='#nevzudin'"><img src="slike/nevzudin.jpg"><div class="ime">Nevzudin Belegić</div></div>
+        <div class="kartica" onclick="location.href='#hana'"><img src="slike/hana.jpg"><div class="ime">Hana Buljubašić</div></div>
+        <div class="kartica" onclick="location.href='#ajna'"><img src="slike/ajna.jpg"><div class="ime">Ajna Dugonja</div></div>
+        <div class="kartica" onclick="location.href='#adna'"><img src="slike/adna.jpg"><div class="ime">Adna Grabus</div></div>
+        <div class="kartica" onclick="location.href='#dino'"><img src="slike/dino.jpg"><div class="ime">Dino Grabus</div></div>
+        <div class="kartica" onclick="location.href='#ena'"><img src="slike/ena.jpg"><div class="ime">Ena Ismić</div></div>
+        <div class="kartica" onclick="location.href='#ajla'"><img src="slike/ajla.jpg"><div class="ime">Ajla Kargić</div></div>
+        <div class="kartica" onclick="location.href='#naida'"><img src="slike/naida.jpg"><div class="ime">Naida Kargić</div></div>
+        <div class="kartica" onclick="location.href='#eldar'"><img src="slike/eldar.jpg"><div class="ime">Eldar Kopčić</div></div>
+        <div class="kartica" onclick="location.href='#elmin'"><img src="slike/elmin.jpg"><div class="ime">Elmin Memić</div></div>
+        <div class="kartica" onclick="location.href='#jasmina'"><img src="slike/jasmina.jpg"><div class="ime">Jasmina Mujkić</div></div>
+        <div class="kartica" onclick="location.href='#ajdin'"><img src="slike/ajdin.jpg"><div class="ime">Ajdin Riđić</div></div>
+        <div class="kartica" onclick="location.href='#abdulah'"><img src="slike/abdulah.jpg"><div class="ime">Abdulah Zec</div></div>
+    </div>
+</section>
+
+<section id="biografije">
+    <h2>Upoznajte Nas</h2>
+    
+    <div id="razrednik-intervju" class="bio-sekcija" style="border: none; background: #1a1a1a; color: #f4f4f4; box-shadow: 0 25px 60px rgba(0,0,0,0.6); position: relative; padding: 50px; border-right: 10px solid var(--zlatna); border-radius: 0 30px 30px 0;">
+        <div style="position: absolute; top: 20px; left: -15px; background: var(--zlatna); color: #1a1a1a; padding: 10px 25px; font-weight: 900; text-transform: uppercase; transform: rotate(-2deg); box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
+            THE BOSS
+        </div>
+        <img src="slike/razrednik.jpg" class="bio-slika" alt="Kenan Hadžić" style="border: 5px solid var(--zlatna); width: 300px; height: 420px; object-fit: cover; filter: sepia(20%);">
+        <div class="bio-tekst">
+            <h3 style="color: var(--zlatna); font-size: 3rem; margin: 0; text-transform: uppercase; font-weight: 900; line-height: 1;">Kenan Hadžić</h3>
+            <p style="color: var(--zlatna); font-size: 1rem; letter-spacing: 4px; font-weight: bold; margin: 10px 0 30px 0; opacity: 0.8;">MAGISTAR & PROFESOR HISTORIJE</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
+                    <p style="margin: 0; color: var(--zlatna); font-size: 0.8rem; text-transform: uppercase;">Obrazovanje</p>
+                    <p style="margin: 5px 0 0 0; font-weight: bold;">UNSA - Filozofski fakultet</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
+                    <p style="margin: 0; color: var(--zlatna); font-size: 0.8rem; text-transform: uppercase;">Staž u OŠ Dolac</p>
+                    <p style="margin: 5px 0 0 0; font-weight: bold;">Od 2018. godine</p>
+                </div>
+            </div>
+            <p style="line-height: 1.8; font-size: 1.05rem;">
+                Kada historiju predaje neko ko je magistrirao na toj oblasti, časovi postaju više od datuma na papiru. Kenan Hadžić je u proteklih <strong>10 godina rada u prosvjeti</strong> postao sinonim za autoritet koji se poštuje, ali i za podršku koja nam je svima trebala. 
+            </p>
+            <p style="line-height: 1.8; font-size: 1.05rem; margin-top: 15px;">
+                Njegova uloga u našem odjeljenju nije bila samo "dnevnik i ocjene". On je bio onaj koji je balansirao naš temperament, učio nas kako da budemo ljudi i kako da svaku grešku pretvorimo u lekciju. Za njega, mi nismo samo broj u katalogu, već ekipa koju je vodio kroz najburnije školske dane.
+            </p>
+            <div style="margin-top: 40px; padding: 30px; background: #000; border-radius: 20px; border: 1px solid rgba(241,196,15,0.3); box-shadow: inset 0 0 20px rgba(241,196,15,0.1);">
+                 <p style="font-style: italic; color: #fff; font-size: 1.3rem; line-height: 1.6; margin: 0; text-align: center;">
+                    "Ko prestane učiti, star je, imao 20 ili 80 godina, a ko nastavi učiti, ostaje mlad."
+                 </p>
+                 <p style="text-align: center; color: var(--zlatna); margin-top: 15px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">— Henry Ford</p>
+            </div>
+            <p style="margin-top: 35px; font-size: 0.9rem; border-left: 3px solid var(--zlatna); padding-left: 15px; font-weight: bold; color: rgba(255,255,255,0.6);">
+                Hvala Vam razredni što ste našu historiju učinili nezaboravnom!
+            </p>
+        </div>
+    </div>
+
+    <div id="davud" class="bio-sekcija">
+        <img src="slike/davud.jpg" class="bio-slika" alt="Davud Amidžić">
+        <div class="bio-tekst">
+            <h3>Davud Amidžić</h3>
+            <p><strong>Put ka budućnosti:</strong> Nakon devet godina u našoj školi, svoj put nastavljam u <strong>Medresi</strong>. Vjera, znanje i disciplina su temelji na kojima želim graditi svoju budućnost.</p>
+            <p><strong>Sport i disciplina:</strong> Dugogodišnji sam džudista sa ponosno zarađenim <strong>zelenim pojasom</strong>. Judo me naučio da nije bitno koliko puta padneš, već koliko puta ustaneš – jači nego prije.</p>
+            <p><strong>Uspomena na razred:</strong> Iz OŠ "Dolac" sa sobom nosim ono najvrjednije – <strong>našu raju</strong>. Uvijek sam se trudio biti onaj prijatelj na kojeg se ekipa može osloniti u svakom trenutku.</p>
+            <p style="font-style: italic; color: #3498db; font-weight: bold; margin-top: 20px;">
+                "Pravi borac se ne prepoznaje po snazi mišića, već po snazi karaktera i odanosti svojim prijateljima."
+            </p>
+        </div>
+    </div>
+
+    <div id="nevzudin" class="bio-sekcija">
+        <img src="slike/nevzudin.jpg" class="bio-slika" alt="Nevzudin Belegić">
+        <div class="bio-tekst">
+            <h3>Nevzudin Belegić</h3>
+            <p><strong>Digitalna budućnost:</strong> Moj plan je upisati smjer <strong>Informatički tehničar</strong>. Tehnologija me privlači, a cilj mi je da spojim svoje vještine sa modernim svijetom IT-a.</p>
+            <p><strong>Duh i energija:</strong> U školi sam poznat kao onaj koji nema dana a da nekoga ne nasmije. Moje "sprdanje" sa nastavnicima i opušten pristup su legendarni, jer smatram da škola ne smije biti dosadna.</p>
+            <p><strong>Hobiji i strasti:</strong> Kad nisam u školi, naći ćete me za <strong>bilijarskim stolom</strong> ili na stadionu. Veliki sam navijač <strong>NK Travnik</strong> i ponosni dio <strong>Gerile</strong> – srce ostavljam na tribinama!</p>
+            <p><strong>Karakter:</strong> Iako me nekad smatraju "problematičnim", oni koji me znaju kažu da sam predobar lik. Volim dobro društvo, poštujem ekipu i uživam u svakom trenutku mladosti.</p>
+            <p style="font-style: italic; color: #c0392b; font-weight: bold; margin-top: 20px;">
+                "Život je igra – nekad je bilijar, nekad je tribina, ali najbitnije je da se uvijek igra srcem!"
+            </p>
+        </div>
+    </div>
+
+    <div id="hana" class="bio-sekcija">
+        <img src="slike/hana.jpg" class="bio-slika" alt="Hana Buljubašić">
+        <div class="bio-tekst">
+            <h3>Hana Buljubašić</h3>
+            <p><strong>Kreativni put:</strong> Moja strast su stil i estetika, pa je logičan korak upis u <strong>Frizersku školu</strong>. Volim raditi rukama i stvarati nešto lijepo, a radujem se novim izazovima koje donosi zanat.</p>
+            <p><strong>U srcu razreda:</strong> Uvijek sam bila tu za druženje sa svima. Za mene škola nije bila samo učenje, već smijeh i razgovor sa ekipom. Slobodno vrijeme najradije provodim u opuštenim šetnjama, puneći baterije za nove školske dane.</p>
+            <p><strong>Uspomena koja ostaje:</strong> Ono što ću zauvijek čuvati u sjećanju je naše zajedničko <strong>odrastanje</strong>. Od malih nogu pa do danas, bili ste moja druga porodica.</p>
+            <p><strong>Uspjeh:</strong> Sa dobrim/vrlo dobrim uspjehom i <strong>uzornim vladanjem</strong>, spremna sam za nove pobjede!</p>
+            <p style="font-style: italic; color: #e67e22; font-weight: bold; margin-top: 20px;">
+                "Ljepota počinje onog trenutka kada odlučiš biti svoja – i uvijek okružena pravim prijateljima."
+            </p>
+        </div>
+    </div>
+
+    <div id="ajna" class="bio-sekcija">
+        <img src="slike/ajna.jpg" class="bio-slika" alt="Ajna Dugonja">
+        <div class="bio-tekst">
+            <h3>Ajna Dugonja</h3>
+            <p><strong>Budući heroj u bijelom:</strong> Moj veliki plan i cilj je da upišem <strong>Medicinsku školu</strong>. Želim pomagati ljudima i učiti o onome što je najvažnije – zdravlju i životu.</p>
+            <p><strong>Pobjednički duh:</strong> Teren je moje drugo mjesto stanovanja. Treniram odbojku u <strong>klubu "Victory"</strong>, gdje svakodnevno nižemo rezultate i učimo šta znači borba do zadnjeg poena.</p>
+            <p><strong>Svestranost u školi:</strong> Pored sporta, aktivna sam i u školskim klupama. Ponosna sam na učešća na <strong>takmičenjima iz engleskog jezika i tjelesnog odgoja</strong>, kao i na brojna druga školska takmičenja na kojima sam predstavljala naš razred.</p>
+            <p><strong>Oslonac razreda:</strong> Uvijek sam tu da pomognem svima u nevolji. Vjerujem da je prava snaga u tome da podigneš druge kada im je najteže, bilo na terenu ili u učionici.</p>
+            <p style="font-style: italic; color: #27ae60; font-weight: bold; margin-top: 20px;">
+                "Kao na odbojkaškom terenu, tako i u životu: tim je jak onoliko koliko smo spremni pomoći jedni drugima."
+            </p>
+        </div>
+    </div>
+
+    <div id="adna" class="bio-sekcija">
+        <img src="slike/adna.jpg" class="bio-slika" alt="Adna Grabus">
+        <div class="bio-tekst">
+            <h3>Adna Grabus</h3>
+            <p><strong>Budući IT stručnjak:</strong> Moje ambicije su se usmjerile ka digitalnom svijetu. Planiram upisati <strong>Ekonomsku školu</strong>, smjer <strong>Poslovno-informatički tehničar</strong>, jer vjerujem da je spoj informatike i ekonomije posao budućnosti.</p>
+            <p><strong>Novi interesi:</strong> Odustala sam od gimnazije jer želim konkretno znanje koje mogu odmah primijeniti. Zanimaju me moderne tehnologije i način na koji one pokreću današnji biznis.</p>
+            <p><strong>Karakter i društvo:</strong> Sebe bih opisala kao osobu koja uvijek teži ka nečem novom i boljem. Volim provoditi vrijeme sa ekipom iz razreda i graditi uspomene koje će trajati i nakon što završimo osnovnu školu.</p>
+            <p><strong>Školski put:</strong> Devet godina u OŠ "Dolac na Lašvi" završavam ponosna na stečeno znanje i spremna da se okušam u svijetu informatike i poslovne administracije.</p>
+            <p style="font-style: italic; color: #2980b9; font-weight: bold; margin-top: 20px;">
+                "Dok drugi prate trendove, ja planiram kako da ih kreiram. Svoj put počinjem u svijetu digitalnih tehnologija."
+            </p>
+        </div>
+    </div>
+
+    <div id="dino" class="bio-sekcija">
+        <img src="slike/dino.jpg" class="bio-slika" alt="Dino Grabus">
+        <div class="bio-tekst">
+            <h3>Dino Grabus</h3>
+            <p><strong>Obrazovni put:</strong> Moj plan je upisati <strong>Ekonomsku školu</strong>, smjer Poslovno-informatički tehničar. To vidim kao odličnu osnovu za daljnje usavršavanje i razvoj karijere.</p>
+            <p><strong>Cilj u karijeri:</strong> Nakon završene srednje škole, moja velika želja je zaposlenje u <strong>Sudskoj policiji</strong>. Težim poslu koji zahtijeva odgovornost, disciplinu i poštivanje zakona.</p>
+            <p><strong>Slobodno vrijeme:</strong> U slobodnim trenucima uživam u vožnji <strong>romobila</strong> i kvalitetnom druženju sa prijateljima. Sebe bih opisao kao finu i korektnu osobu koja cijeni dobre odnose u kolektivu.</p>
+            <p style="font-style: italic; color: #16a085; font-weight: bold; margin-top: 20px;">
+                "U životu je bitno imati dobru strategiju – bilo u igrici, bilo u školi."
+            </p>
+        </div>
+    </div>
+
+    <div id="ena" class="bio-sekcija">
+        <img src="slike/ena.jpg" class="bio-slika" alt="Ena Ismić">
+        <div class="bio-tekst">
+            <h3>Ena Ismić</h3>
+            <p><strong>Budući medicinski tehničar:</strong> Moj primarni cilj je upis u <strong>Medicinsku školu</strong>. Oduvijek me privlačila biologija i želja da pomažem onima kojima je to najpotrebnije.</p>
+            <p><strong>Ljubav prema životinjama:</strong> Veliki sam ljubitelj životinja i smatram da se kroz brigu o njima razvija empatija i odgovornost. Slobodno vrijeme najradije provodim vani, u dugim šetnjama prirodom koje me opuštaju.</p>
+            <p><strong>Osobnost i druženje:</strong> U školi važim za tihu, mirnu i povučenu osobu, ali u krugu prijatelja sam sasvim opuštena. Iz osnovne škole nosim lijepe uspomene na odmore i zajedničke ekskurzije.</p>
+            <p style="font-style: italic; color: #9b59b6; font-weight: bold; margin-top: 20px;">
+                "Dobrota se ne ogleda u riječima, već u djelima i pažnji koju poklanjamo onima oko nas."
+            </p>
+        </div>
+    </div>
+
+    <div id="ajla" class="bio-sekcija">
+        <img src="slike/ajla.jpg" class="bio-slika" alt="Ajla Kargić">
+        <div class="bio-tekst">
+            <h3>Ajla Kargić</h3>
+            <p><strong>Put ka ekonomiji:</strong> Moje ambicije su vezane za ekonomiju, te planiram upisati <strong>Ekonomsku školu</strong>. Smatram da je to odlična podloga za biznis i stabilnu karijeru.</p>
+            <p><strong>Kreativnost i hobi:</strong> Pored škole, moja velika strast je <strong>crtanje</strong>. Volim prenositi svoje ideje na papir i tako izražavati svoju kreativnu stranu. Također, uživam u muzici i šetnjama.</p>
+            <p><strong>Uspjeh i društvo:</strong> Kroz cijelu osnovnu školu prolazim sa <strong>odličnim uspjehom</strong> i primjernim vladanjem. Sebe smatram komunikativnom i društvenom osobom koja je uvijek tu za dobar razgovor i podršku.</p>
+            <p style="font-style: italic; color: #e74c3c; font-weight: bold; margin-top: 20px;">
+                "Kreativnost nam omogućava da vidimo svijet iz drugačije perspektive, a znanje da taj svijet mijenjamo."
+            </p>
+        </div>
+    </div>
+
+    <div id="naida" class="bio-sekcija">
+        <img src="slike/naida.jpg" class="bio-slika" alt="Naida Kargić">
+        <div class="bio-tekst">
+            <h3>Naida Kargić</h3>
+            <p><strong>U svijetu finansija:</strong> Moj izbor za nastavak školovanja je <strong>Ekonomska škola</strong>. Želim steći znanja o ekonomskom sistemu, menadžmentu i poslovnoj organizaciji.</p>
+            <p><strong>Slobodne aktivnosti:</strong> Slobodno vrijeme ispunjavam aktivnostima koje me ispunjavaju – slušanjem muzike i opuštajućim šetnjama sa prijateljima. Volim balans između školskih obaveza i slobodnog vremena.</p>
+            <p><strong>Uspjeh i karakter:</strong> Baš kao i moja sestra, osnovnu školu završavam sa <strong>odličnim uspjehom</strong> i uzornim vladanjem. Opisala bih se kao komunikativna, pouzdana i društvena djevojka.</p>
+            <p style="font-style: italic; color: #34495e; font-weight: bold; margin-top: 20px;">
+                "Uspjeh ne dolazi sam od sebe, on je rezultat truda, discipline i jasnih ciljeva koje postavimo ispred sebe."
+            </p>
+        </div>
+    </div>
+
+    <div id="eldar" class="bio-sekcija">
+        <img src="slike/eldar.jpg" class="bio-slika" alt="Eldar Kopčić">
+        <div class="bio-tekst">
+            <h3>Eldar Kopčić</h3>
+            <p><strong>Mašinska struka:</strong> Moj plan za budućnost je upis u Mješovitu srednju školu za smjer <strong>Mašinski tehničar</strong>. Volim tehničke nauke i rad sa nacrtima i mašinama.</p>
+            <p><strong>Fudbal i tribina:</strong> Sport je ogroman dio mog života. Aktivno treniram fudbal u <strong>NK "Nova Bila"</strong>, a vikendom sam na stadionu. Strastveni sam navijač <strong>NK Travnik</strong> i član navijačke grupe <strong>Gerila</strong>.</p>
+            <p><strong>Učionica i ekipa:</strong> U razredu sam poznat kao opušten lik, uvijek spreman za šalu, a nerijetko dobijem i opomenu zbog pričanja na času – ali sve je to dio školske atmosfere.</p>
+            <p style="font-style: italic; color: #2ecc71; font-weight: bold; margin-top: 20px;">
+                "I na terenu i na tribini, najvažnije je ostati odan svom timu i boriti se do posljednjeg zvižduka."
+            </p>
+        </div>
+    </div>
+
+    <div id="elmin" class="bio-sekcija">
+        <img src="slike/elmin.jpg" class="bio-slika" alt="Elmin Memić">
+        <div class="bio-tekst">
+            <h3>Elmin Memić</h3>
+            <p><strong>Kulinarski putevi:</strong> Moj cilj je da upišem smjer <strong>Kuhar</strong>. Kuhanje smatram umjetnošću i želim naučiti sve tajne profesionalne gastronomije.</p>
+            <p><strong>Tehnički hobiji:</strong> U slobodno vrijeme bavim se <strong>3D modeliranjem</strong> i dizajnom, što mi pruža prostor za kreativno izražavanje u digitalnom svijetu. Također, volim igrati video igre.</p>
+            <p><strong>Društveni život:</strong> Sebe bih opisao kao druželjubivu osobu koja uživa u izlascima i vremenu provedenom sa rajom iz razreda. Osnovnu školu ću pamtiti po zajedničkim smicalicama i dobrom druženju.</p>
+            <p style="font-style: italic; color: #f39c12; font-weight: bold; margin-top: 20px;">
+                "Dobro jelo, baš kao i dobro prijateljstvo, zahtijeva prave sastojke, strpljenje i mnogo truda."
+            </p>
+        </div>
+    </div>
+
+    <div id="jasmina" class="bio-sekcija">
+        <img src="slike/jasmina.jpg" class="bio-slika" alt="Jasmina Mujkić">
+        <div class="bio-tekst">
+            <h3>Jasmina Mujkić</h3>
+            <p><strong>Pravni sistem:</strong> Moja želja za nastavak obrazovanja je upis u <strong>Ekonomsku školu</strong>, smjer <strong>Pravni tehničar</strong>. Privlače me zakoni, administracija i borba za pravdu.</p>
+            <p><strong>Aktivnosti i hobiji:</strong> Slobodno vrijeme koristim za slušanje muzike, šetnje i kvalitetne razgovore sa prijateljima. Volim organizovanost kako u učenju, tako i u svakodnevnom životu.</p>
+            <p><strong>Školski uspjeh:</strong> Devet godina obrazovanja u OŠ "Dolac na Lašvi" krunišem <strong>odličnim uspjehom</strong> i primjernim vladanjem kroz sve razrede.</p>
+            <p style="font-style: italic; color: #1abc9c; font-weight: bold; margin-top: 20px;">
+                "Pravda i znanje su jedine stvari koje niko ne može oduzeti čovjeku. Spremna sam za nove pravne izazove."
+            </p>
+        </div>
+    </div>
+
+    <div id="ajdin" class="bio-sekcija">
+        <img src="slike/ajdin.jpg" class="bio-slika" alt="Ajdin Riđić">
+        <div class="bio-tekst">
+            <h3>Ajdin Riđić</h3>
+            <p><strong>Ugostiteljstvo:</strong> Planiram upisati smjer <strong>Konobar</strong>. Smatram da je to dinamičan posao koji nudi mogućnost rada sa ljudima i stalnu komunikaciju.</p>
+            <p><strong>Slobodno vrijeme:</strong> Veliki sam ljubitelj video igara i to je moj glavni način opuštanja nakon škole. Pored toga, volim provoditi vrijeme vani sa svojom ekipom iz naselja.</p>
+            <p><strong>Razredna raja:</strong> Sebe vidim kao jednostavnog i prilagodljivog momka. Iz škole nosim uspomene na bježanje sa časova, zezanciju pod odmorima i prijatelje za cijeli život.</p>
+            <p style="font-style: italic; color: #d35400; font-weight: bold; margin-top: 20px;">
+                "Život je prekratak da bismo ga provodili u brizi – treba iskoristiti svaki trenutak za dobar smijeh sa ekipom."
+            </p>
+        </div>
+    </div>
+
+    <div id="abdulah" class="bio-sekcija">
+        <img src="slike/abdulah.jpg" class="bio-slika" alt="Abdulah Zec">
+        <div class="bio-tekst">
+            <h3>Abdulah Zec</h3>
+            <p><strong>Moderna proizvodnja:</strong> Moj plan je da postanem <strong>CNC operater</strong>. Fascinira me spoj moderne tehnologije i mašinstva, i želim naučiti kako se od digitalnog nacrta stvara gotov proizvod.</p>
+            <p><strong>Gaming i slobodno vrijeme:</strong> Veliki sam ljubitelj <strong>video igara</strong>. Gaming mi je omiljeni način opuštanja, ali i treniranja fokusa koji će mi sigurno trebati u budućem poslu.</p>
+            <p><strong>Karakter i društvo:</strong> Sebe bih opisao kao veoma društvenu osobu. Ono što me izdvaja je to što se, za razliku od mnogih, <strong>uvijek uspijem izvući iz problema</strong> – znam kad treba stati, a kad se našaliti. Ekipa me cijeni kao kvalitetnog i pouzdanog prijatelja.</p>
+            <p><strong>Školski put:</strong> Devet godina u OŠ "Dolac na Lašvi" završavam kao <strong>vrlodobar učenik</strong>. Ponosan sam na sve uspomene, a posebno na ekipu s kojom sam proveo svaki veliki odmor.</p>
+            <p style="font-style: italic; color: #16a085; font-weight: bold; margin-top: 20px;">
+                "U životu je bitno imati dobru strategiju – bilo u igrici, bilo u školi."
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<section id="zanimljivosti">
+    <h2>Zanimljivosti o IXb</h2>
+    <p style="color: #666; max-width: 600px; text-align: center; margin: 0 auto 30px auto;">Mali podsjetnik na sve ono što nas čini jedinstvenim iz školskih klupa.</p>
+    
+    <div class="zanimljivosti-grid">
+        <div class="zanimljivost-kutija">
+            <h4>📊 Razredna statistika</h4>
+            <p>Ukupno nas ima 14 u odjeljenju. Imamo buduće programere, ljekare, sportiste, zanatlije, pa čak i vozače kamiona. Spremni da osvojimo svijet!</p>
+        </div>
+        
+        <div class="zanimljivost-kutija" style="border-left-color: #e74c3c;">
+            <h4>📣 Mitovi i Legende</h4>
+            <p>Istorija pamti i prepričava trenutak kada je Amer razbio prozor učionice! Ta scena je zvanično upisana u legende OŠ "Dolac na Lašvi" i ostaje priča za sva vremena.</p>
+        </div>
+
+        <div class="zanimljivost-kutija" style="border-left-color: var(--zlatna);">
+            <h4>🎵 Zvuci iz Hodnika</h4>
+            <p>Između časova vlada haos: prepisivanje zadaće u zadnjih 5 minuta brzinom svjetlosti, Nevzudinove legendarne baze sa nastavnicima, Jasminin prelijep glas i Elminov smijeh do suza.</p>
+        </div>
+
+        <div class="zanimljivost-kutija" style="border-left-color: #2ecc71;">
+            <h4>🔥 Generacijski Potpis</h4>
+            <p>"Iza nas ostaju prazne klupe! Generacija 2017-2026. Najjača ekipa OŠ 'Dolac na Lašvi' odlazi u stilu!"</p>
+        </div>
+
+        <div class="zanimljivost-kutija" style="border-left-color: #9b59b6;">
+            <h4>⚖️ Neslužbeni Zakon</h4>
+            <p>Zakon broj 1: Ako nastavnik pita jedno, a niko ne zna odgovor, čitav razred odjednom počinje glasno da kašlje ili glumi da traži olovku po torbi kako bi se kupilo vrijeme. Solidarnost iznad svega!</p>
+        </div>
+
+        <div class="zanimljivost-kutija" style="border-left-color: #34495e;">
+            <h4>⏳ Sljedeća Stanica: Matursko!</h4>
+            <p>OGBrojavamo zadnje dane u klupama. Knjige polako zatvaramo, ocjene peglamo, a spremamo odijela i haljine za najluđu noć i naš zvanični oproštaj.</p>
+        </div>
+    </div>
+</section>
+
+<section id="video" style="background: var(--siva); padding-top: 60px; min-height: auto; padding-bottom: 100px;">
+    <div class="video-sekcija">
+        <h2 style="margin-bottom: 20px;">Zvanični Maturantski Video</h2>
+        <p style="color: #666; max-width: 600px; margin: 0 auto 20px auto;">Pogledajte naš zajednički video, najljepše uspomene i trenutke koje smo zabilježili tokom našeg devetogodišnjeg školovanja.</p>
+        <div class="video-container">
+            <video controls>
+                <source src="0514.mp4" type="video/mp4">
+                Vaš preglednik ne podržava video format.
+            </video>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Generacija IXb OŠ "Dolac na Lašvi" | Autor: Davud Amidžić</p>
+</footer>
+
+<script>
+function kopirajTekst(id) {
+    var tekst = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(tekst).then(function() {
+        alert("Uzrečica je kopirana u clipboard!");
+    }).catch(function(err) {
+        console.error('Greška prilikom kopiranja: ', err);
+    });
+}
+</script>
+
+</body>
+</html>
